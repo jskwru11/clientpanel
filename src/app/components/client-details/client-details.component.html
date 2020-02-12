@@ -1,0 +1,43 @@
+<flash-messages></flash-messages>
+<mat-card *ngIf="client" class="client-detail">
+  <mat-card-header><h3>{{ client.firstName }} {{ client.lastName }}</h3></mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-title>Client ID: {{ uid }} <h3>Balance: <span
+    [class.text-red]="hasBalance"
+    [class.text-green]=!hasBalance>{{ client.balance | currency }}</span><small>
+      <a (click)="showBalanceUpdateInput = !showBalanceUpdateInput">
+        <mat-icon >edit</mat-icon>
+      </a>
+    </small></h3>
+  <form *ngIf="showBalanceUpdateInput" (ngSubmit)="updateBalance()">
+    <mat-form-field>
+      <input
+      matInput
+      type="number"
+      name="balance"
+      placeholder="balance"
+      [(ngModel)]="client.balance">
+      <span>
+        <button mat-raised-button color="primary" type="submit">Update</button>
+      </span>
+    </mat-form-field>
+  </form></mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>Contact Email: {{ client.email }}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Contact Phone: {{ client.phone }}</mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+    mat-raised-button
+    color="accent"
+    routerLink="/client/edit/{{ uid }}">Edit</button>
+    <button
+    mat-raised-button
+    color="primary"
+    (click)="onDeleteClicked()">Delete</button>
+  </mat-card-actions>
+</mat-card>

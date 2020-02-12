@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <flash-messages></flash-messages>
+  <div id="container">
+    <mat-card>
+      <mat-card-title>
+        Add Client
+      </mat-card-title>
+      <mat-card-content>
+        <form
+        fxLayout="column"
+        class="form"
+        fxLayoutGap="15px"
+        [formGroup]="clientForm"
+        (ngSubmit)="addClient()">
+          <div>
+            <mat-form-field>
+              <input
+              matInput
+              placeholder="first name"
+              formControlName="firstName">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input
+              matInput
+              placeholder="last name"
+              formControlName="lastName">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input
+              matInput
+              placeholder="email address"
+              formControlName="email">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input
+              matInput
+              placeholder="phone number"
+              formControlName="phone">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input
+              matInput
+              placeholder="balance amount"
+              formControlName="balance">
+            </mat-form-field>
+          </div>
+          <button class="btn btn-primary" type="submit" mat-raised-button>Add</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</body>
+</html>

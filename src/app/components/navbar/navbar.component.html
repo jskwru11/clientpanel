@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout>
+    <span fxFlex><a mat-menu-item [routerLink]="['/']" routerLinkActive="router-link-active"><mat-icon>people</mat-icon>ClientPORTAL</a></span>
+    <span class='fill'></span>
+    <a fxHide fxShow.gt-sm mat-menu-item [routerLink]="['/']" routerLinkActive="router-link-active" ><mat-icon>dashboard</mat-icon><span>Dashboard</span></a>
+    <a fxHide fxShow.gt-sm mat-menu-item [routerLink]="['/register']" routerLinkActive="router-link-active"><mat-icon>assignment</mat-icon><span>Register</span></a>
+    <a fxHide fxShow.gt-sm mat-menu-item [routerLink]="['/login']" routerLinkActive="router-link-active"><mat-icon>arrow_right_alt</mat-icon><span>Login</span></a>
+    <button fxHide.gt-sm fxShow mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item><a [routerLink]="['/dashboard']" routerLinkActive="router-link-active" ><mat-icon>dashboard</mat-icon><span>Dashboard</span></a></button>
+      <button mat-menu-item><a [routerLink]="['/register']" routerLinkActive="router-link-active"><mat-icon>assignment</mat-icon><span>Register</span></a></button>
+      <button mat-menu-item><a [routerLink]="['/login']" routerLinkActive="router-link-active"><mat-icon>arrow_right_alt</mat-icon><span>Login</span></a></button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

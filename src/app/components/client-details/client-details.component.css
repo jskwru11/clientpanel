@@ -1,0 +1,13 @@
+.client-detail {
+  width: 50%;
+  margin: 60px auto;
+}
+
+.text-red {
+  color: red;
+}
+
+.text-green {
+  background: green;
+  color: green;
+}
