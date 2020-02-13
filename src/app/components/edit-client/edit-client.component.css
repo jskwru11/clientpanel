@@ -1,0 +1,10 @@
+.green-text {
+    color: green;
+}
+
+.btn {
+    background: #666;
+    color: #fff;
+    width: 15%;
+    padding: 5px;
+}

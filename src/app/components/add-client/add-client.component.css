@@ -37,6 +37,7 @@ html {
 
 #container mat-card {
   margin-top: 5rem;
+  padding: 1.5rem;
 }
 
 #container input {

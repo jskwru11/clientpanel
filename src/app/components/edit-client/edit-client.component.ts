@@ -45,11 +45,21 @@ export class EditClientComponent implements OnInit {
     .subscribe(client => {
       if (client != null) {
         this.client = client;
+        this.editForm.get('firstName').setValue(this.client.firstName);
+        this.editForm.get('lastName').setValue(this.client.lastName);
+        this.editForm.get('email').setValue(this.client.email);
+        this.editForm.get('phone').setValue(this.client.phone);
+        this.editForm.get('balance').setValue(this.client.balance);
       }
     });
   }
 
   editClient() {
+    const updatedClient = this.editForm.value;
+    updatedClient.uid = this.uid;
+    this.cs.updateClient(updatedClient);
+    this.fms.show('Client has been updated.', { cssClass: 'green-text', timeout: 4000});
+    this.router.navigate([`/client/${this.uid}`]);
   }
 
 }

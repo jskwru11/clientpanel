@@ -8,6 +8,7 @@ export interface Client {
 }
 
 export interface AuthData {
+  name?: string;
   email: string;
   password: string;
 }

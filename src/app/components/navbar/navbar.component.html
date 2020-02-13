@@ -2,14 +2,19 @@
   <mat-toolbar-row fxLayout>
     <span fxFlex><a mat-menu-item [routerLink]="['/']" routerLinkActive="router-link-active"><mat-icon>people</mat-icon>ClientPORTAL</a></span>
     <span class='fill'></span>
+    <a *ngIf="isAuthenticated" fxHide fxShow.gt-sm mat-menu-item><span>{{ loggedInUser }}</span></a>
     <a fxHide fxShow.gt-sm mat-menu-item [routerLink]="['/']" routerLinkActive="router-link-active" ><mat-icon>dashboard</mat-icon><span>Dashboard</span></a>
-    <a fxHide fxShow.gt-sm mat-menu-item [routerLink]="['/register']" routerLinkActive="router-link-active"><mat-icon>assignment</mat-icon><span>Register</span></a>
-    <a fxHide fxShow.gt-sm mat-menu-item [routerLink]="['/login']" routerLinkActive="router-link-active"><mat-icon>arrow_right_alt</mat-icon><span>Login</span></a>
+    <a *ngIf="!isAuthenticated" fxHide fxShow.gt-sm mat-menu-item [routerLink]="['/register']" routerLinkActive="router-link-active"><mat-icon>assignment</mat-icon><span>Register</span></a>
+    <a *ngIf="!isAuthenticated" fxHide fxShow.gt-sm mat-menu-item [routerLink]="['/login']" routerLinkActive="router-link-active"><mat-icon>arrow_right_alt</mat-icon><span>Login</span></a>
+    <a *ngIf="isAuthenticated" fxHide fxShow.gt-sm mat-menu-item [routerLink]="['/settings']" routerLinkActive="router-link-active"><mat-icon>settings</mat-icon><span>Settings</span></a>
+    <a *ngIf="isAuthenticated" (click)="onLogout()" fxHide fxShow.gt-sm mat-menu-item [routerLink]="['/login']" routerLinkActive="router-link-active"><mat-icon>exit_to_app</mat-icon><span>Logout</span></a>
     <button fxHide.gt-sm fxShow mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item><a [routerLink]="['/dashboard']" routerLinkActive="router-link-active" ><mat-icon>dashboard</mat-icon><span>Dashboard</span></a></button>
-      <button mat-menu-item><a [routerLink]="['/register']" routerLinkActive="router-link-active"><mat-icon>assignment</mat-icon><span>Register</span></a></button>
-      <button mat-menu-item><a [routerLink]="['/login']" routerLinkActive="router-link-active"><mat-icon>arrow_right_alt</mat-icon><span>Login</span></a></button>
+      <button mat-menu-item><a [routerLink]="['/']" routerLinkActive="router-link-active" ><mat-icon>dashboard</mat-icon><span>Dashboard</span></a></button>
+      <button *ngIf="!isAuthenticated" mat-menu-item><a [routerLink]="['/register']" routerLinkActive="router-link-active"><mat-icon>assignment</mat-icon><span>Register</span></a></button>
+      <button *ngIf="!isAuthenticated" mat-menu-item><a [routerLink]="['/login']" routerLinkActive="router-link-active"><mat-icon>arrow_right_alt</mat-icon><span>Login</span></a></button>
+      <button *ngIf="isAuthenticated" mat-menu-item><a [routerLink]="['/settings']" routerLinkActive="router-link-active"><mat-icon>settings</mat-icon><span>Settings</span></a></button>
+      <button *ngIf="isAuthenticated" type="button" (click)="onLogout()" mat-menu-item><a ><mat-icon>exit_to_app</mat-icon><span>Logout</span></a></button>
     </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>

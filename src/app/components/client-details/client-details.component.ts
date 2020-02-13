@@ -42,13 +42,16 @@ export class ClientDetailsComponent implements OnInit {
   }
 
   onDeleteClicked() {
-    this.client.uid = this.uid;
-    this.cs.deleteClient(this.client);
-    this.fms.show('Client deleted', {
-      cssClass: 'text-red',
-      timeout: 4000
-    });
-    this.router.navigate(['/']);
+    if (confirm('are you sure?')) {
+      this.client.uid = this.uid;
+      this.cs.deleteClient(this.client);
+      this.fms.show('Client deleted', {
+        cssClass: 'text-red',
+        timeout: 4000
+      });
+      this.router.navigate(['/']);
+    }
+
   }
 
   updateBalance() {
